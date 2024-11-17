@@ -1,68 +1,30 @@
 const express = require("express");
 const path = require("path");
+const expressSession = require('express-session');
+const authRoutes = require('./js/authRoutes');  
+const connectToDatabase = require("./js/dbConnection.js");
+
 const app = express();
 
-app.get("/login.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/login.html"));
-})
+// Middleware to parse JSON data
+app.use(express.json());
 
-app.get("/linkWallet.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/linkWallet.html"));
-})
+// Serve static files from the 'public' folder (CSS, JS, HTML, etc.)
+app.use(express.static(path.join(__dirname, 'public')));  
 
-app.get("/subscription.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/subscription.html"));
-})
+// Authentication-related routes (login)
+app.use(authRoutes);
 
 
-app.get("/search.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/search.html"));
-})
+// Connect to the database
+connectToDatabase();
 
-app.get("/scan.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/scan.html"));
-})
-
-app.get("/segment.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/segment.html"));
-})
-
-app.get("/detail.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/detail.html"));
-})
-
-app.get("/logout.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/logout.html"));
-})
-
-
-
-app.get("/css/saino.css", (req, res) => {
-    res.type('.css');
-    res.sendFile(path.join(__dirname + "/css/saino.css"));
-})
-
-
-app.get("/css/styles1.css", (req, res) => {
-    res.type('.css');
-    res.sendFile(path.join(__dirname + "/css/styles1.css"));
-})
-
-app.get("/css/styles2.css", (req, res) => {
-    res.type('.css');
-    res.sendFile(path.join(__dirname + "/css/styles2.css"));
-})
-
-app.get("/scripts.js", (req, res) => {
-    res.type('.js');
-    res.sendFile(path.join(__dirname + "/scripts.js"));
-})
+// Error handling middleware (optional but recommended)
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Something went wrong!' });
+});
 
 const server = app.listen(5000);
 const portNumber = server.address().port;
 console.log(`port is open on ${portNumber}`);
-
-app.get("/contract.js", (req, res) => {
-    res.type('.js');
-    res.sendFile(path.join(__dirname + "/contract.js"));
-})
