@@ -1,0 +1,141 @@
+
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid #dce0b0;
+        }
+
+        .header {
+            background-color: #dce0b0;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+            color: #708090;
+            font-weight: bold;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .header .back-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .question-box {
+            border: 1px solid #cccccc;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .requested-info {
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 10px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #007aff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+            margin: 10%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #dce0b0;
+            padding: 10px 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .icon {
+            font-size: 24px;
+        }
+
+        .label {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .nav-item:nth-child(2) {
+            color: purple; /* Purple color for "Scan" icon */
+        }
+
+        .bottom-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .bottom-button {
+            padding: 10px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #007aff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+            margin: 10%;
+        }

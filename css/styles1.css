@@ -1,0 +1,427 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
+
+
+.delivery-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between the buttons */
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.delivery-options .delivery-btn {
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  flex: 1; /* Makes buttons stretch equally */
+  max-width: 200px; /* Optional: restricts button width on desktop */
+}
+
+/* Promo Banner */
+.promo-banner img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.promo-banner{
+  margin-top: 3%;
+  text-align: center;
+}
+
+/* Promotions Section */
+.promotions {
+  padding: 20px;
+  text-align: center;
+}
+
+.promotions h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.promo-cards {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.promo-card {
+  width: 300px; /* Adjust width as needed */
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+}
+
+.promo-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.promo-card h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.promo-card p {
+  font-size: 14px;
+  color: red;
+}
+
+.planBtn {
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 15px auto; /* Center the button and add bottom margin */
+
+}
+
+  /* General Styles */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* QR Scanner Styles */
+#qr-reader {
+    width: 100%;
+ max-width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.scanner-header {
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.scanner-frame {
+    width: 100%;
+ max-width: 450px;
+    margin: 0 ;
+    position: relative;
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.scanner-footer {
+    margin-top: 15px;
+}
+
+.scanner-footer button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.scanner-footer button:hover {
+    background-color: #0056b3;
+}
+
+
+.custom-label {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
+
+.custom-label:hover {
+  background-color: #0056b3;
+}
+
+  /* Search Bar */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top:25px;
+}
+
+.search-bar input {
+    width: 90%;
+    max-width: 600px;
+    padding: 10px 15px;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+}
+
+.search-bar i {
+    position: absolute;
+    margin: 8px 0 0 15px;
+    color: #007bff;
+    font-size: 20px;
+}
+
+/* Subscription Plan List */
+.plan-list {
+display: flex;
+flex-direction: column;
+align-items: center; /* Centers content horizontally */
+gap: 15px; /* Adds space between cards */
+}
+
+.plan-card {
+width: 400px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 10px;
+text-align: left;
+padding: 15px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.plan-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.plan-info {
+    flex-grow: 1;
+}
+
+.plan-info h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.plan-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.plan-info p.status {
+    font-size: 16px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  gap: 15px; /* Adds space between cards */
+  margin-top:25px;
+  }
+  
+  .info-card {
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .logout-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+.logout-card h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.logout-buttons {
+  margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.logout-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.logout-buttons .yes-btn {
+    background-color: #007bff;
+}
+
+.logout-buttons .no-btn {
+    background-color: #E3242B;
+}
+
+.logout-buttons button:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .main-content {
+    margin-bottom: 60px; /* Adjust the space as needed */
+  }
+
+  .top-nav {
+      flex-direction: column;
+      align-items: center;
+  }
+
+
+  .delivery-options {
+ 
+    align-items: center;
+}
+
+
+
+.delivery-options .delivery-btn {
+  width: 30%;
+  max-width: none; /* Allow full width on mobile */
+  margin:2%;
+}
+
+.promo-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items in the container */
+  gap: 20px; /* Increase space between buttons */
+}
+
+.planBtn {
+  width: 80%; /* Adjust width for mobile */
+  margin: 0 auto 20px auto; /* Center button and add spacing between buttons */
+}
+
+.scanner-frame {
+
+  height: 420px;
+
+}
+.plan-card {
+  width: 300px;
+
+
+}
+
+.info-card {
+  width: 300px;
+
+
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  /* Show additional navigation links on desktop */
+
+ 
+  .nav-links {
+      display: flex;
+  }
+
+
+
+.header {
+  display: none; /* Hide mobile header */
+}
+
+  .delivery-options {
+    flex-direction: row; /* Horizontal alignment on desktop */
+    justify-content: center;
+    gap: 15%; /* Increase gap between buttons for desktop */
+}
+.delivery-options .delivery-btn {
+  max-width: 150px; /* Control width on larger screens */
+}
+
+.promo-card{
+  width: 200px;
+
+}
+
+.scanner-frame {
+
+  height: 308px;
+
+}
+}

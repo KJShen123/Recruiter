@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/styles1.css" rel="stylesheet" id="style1-css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+
+    <nav class="top-nav">
+        <div class="logo">
+            <h4>Saino Recruiter</h4>
+        </div>
+
+    </nav>
+
+   
+    <main class="main-content">
+    
+        <div class="info-list" id="infoList">
+            <div class="logout-card">
+                <div class="logout-info">
+                    <h3 style="color: #007bff;">Do you sure you want to log out?</h3>
+                    <div class="logout-buttons">
+                        <button class="yes-btn" onclick="window.location.href = 'login.html'">Yes</button>
+                        <button class="no-btn" onclick="window.location.href = 'search.html'">No</button>
+                    </div>
+                  
+                    
+                    
+                </div>
+            </div>
+          
+        </div>
+    </main>
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const planList = document.getElementById("planList");
+        const plans = Array.from(planList.children);
+
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            plans.forEach(plan => {
+                const title = plan.querySelector("h4").innerText.toLowerCase();
+                if (title.includes(query)) {
+                    plan.style.display = "flex";
+                } else {
+                    plan.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
