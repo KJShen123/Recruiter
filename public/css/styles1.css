@@ -13,14 +13,40 @@ body {
 /* Top Navigation Bar */
 .top-nav {
   display: flex;
-  align-items: center;
+left: 0;
   justify-content: space-between;
   padding: 10px 20px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
 }
 
+.top-nav .logout-btn{
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  flex: 1; /* Makes buttons stretch equally */
+  max-width: 200px; /* Optional: restricts button width on desktop */
+}
 
+.logout-btn {
+  position: flex;
+  top: 10px;
+  right: 0px;
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #007bff;
+  color: #fff;
+}
 
 
 
@@ -324,6 +350,35 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     opacity: 0.8;
 }
 
+.findUser-buttons {
+  margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.findUser-buttons button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.findUser-buttons .yes-btn {
+  background-color: #007bff;
+}
+
+.findUser-buttons .no-btn {
+  background-color: #007bff;
+}
+
+.findUser-buttons button:hover {
+  opacity: 0.8;
+}
+
+
 
 
 
@@ -342,10 +397,6 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 60px; /* Adjust the space as needed */
   }
 
-  .top-nav {
-      flex-direction: column;
-      align-items: center;
-  }
 
 
   .delivery-options {

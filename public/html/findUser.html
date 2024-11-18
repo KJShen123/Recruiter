@@ -7,13 +7,14 @@
     <title>Responsive Interface</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="../css/styles1.css" rel="stylesheet" id="style1-css">
+    <link href="css/styles1.css" rel="stylesheet" id="style1-css">
 
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
             padding: 20px;
+
         }
     </style>
 </head>
@@ -30,48 +31,41 @@
             <button class="logout-btn" onclick="window.location.href = 'logout.html'">Logout</button>
         </div>
 
+    </nav>
+
+    </nav>
+
     <!-- Footer Navigation -->
-    
 
 
 
     <!-- Delivery and Date Options (Positioned differently for mobile and desktop) -->
     <div class="delivery-options">
         <button class="delivery-btn" onclick="window.location.href = 'search.html'">View request</button>
-        <button class="delivery-btn" onclick="window.location.href = 'scan.html'">Find User</button>
+        <button class="delivery-btn" onclick="window.location.href = 'findUser.html'">Find User</button>
         <button class="delivery-btn" onclick="window.location.href = 'viewPlan.html'">View Plan</button>
-        
+
     </div>
 
     <!-- Main Content Section -->
     <main class="main-content">
-    
-        <div class="info-list" id="infoList">
-            <div class="info-card">
-                <div class="info-info">
-                    <h3 style="color: #007bff;">Wallet holder A</h3>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                  
-                    <h4>Education</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                  
-                    <h4>Credentials</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                    
-                    <h4>Work experience</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                   
-                    
-                    
-                </div>
-            </div>
-          
+
+        <div class="search-bar">
+
+            <input type="text" id="searchInput" placeholder="Enter User Public Key">
         </div>
+
+        <div class="findUser-buttons">
+            <button class="yes-btn" onclick="window.location.href = ''">Search</button>
+            <button class="no-btn" onclick="window.location.href = 'scan.html'">Search by QR</button>
+        </div>
+
+
+
+
     </main>
+
+
     <script>
         const searchInput = document.getElementById("searchInput");
         const planList = document.getElementById("planList");
