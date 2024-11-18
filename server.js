@@ -9,6 +9,28 @@ const app = express();
 // Middleware to parse JSON data
 app.use(express.json());
 
+// Session middleware (Ensure this is added before defining routes)
+app.use(expressSession({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { 
+        secure: false // Use 'secure: true' in production if using HTTPS
+    }
+}));
+
+// Route to clear session
+app.get('/clear-session', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error clearing session:', err);
+            return res.status(500).send("Failed to clear session");
+        }
+        console.log('Session cleared successfully');
+        res.send({ message: "Session cleared" });
+    });
+});
+
 // Serve static files from the 'public' folder (CSS, JS, HTML, etc.)
 app.use(express.static(path.join(__dirname, 'public')));  
 

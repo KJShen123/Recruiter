@@ -1,7 +1,6 @@
 
 // Addresses and APIs for the contracts
 const CVUploaderAdd = "0x0f79dC72Ba52dd7454D2f7Ff0024930301E5CbaA"; 
-
 const CVUploaderABI = [
 	{
 		"anonymous": false,

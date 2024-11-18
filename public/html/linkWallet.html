@@ -6,8 +6,9 @@
     <title>Responsive Interface</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="css/styles1.css" rel="stylesheet" id="style1-css">    
-</head><body>
+    <link href="../css/styles1.css" rel="stylesheet" id="style1-css">    
+</head>
+<body>
   
     <nav class="top-nav">
         <div class="logo">
@@ -23,6 +24,7 @@
     <div class="delivery-options">
         <button class="delivery-btn" onclick="window.location.href = 'search.html'">Search</button>
         <button class="delivery-btn" onclick="window.location.href = 'scan.html'">Scan</button>
+        <button class="delivery-btn" onclick="window.location.href = 'viewPlan.html'">View Plan</button>
         <button class="delivery-btn" onclick="window.location.href = 'logout.html'">Logout</button>
     </div>
 
@@ -31,7 +33,7 @@
         <!-- Promotion Banner -->
         <section class="promo-banner">
             <!-- <img src="promo-banner.jpg" alt="Spicy Mala Series">  -->
-             <h3>Please link to your metamask account to proceed</h3>
+             <h3>Please Link to Your MetaMask Account to Proceed</h3>
         </section>
 
         <!-- Promotions Section -->
@@ -39,34 +41,36 @@
             
             <div class="promo-cards">
                 <div onclick="accessToMetamask() ">
-              
-                   
                 <button  class="promo-card"  style="background-color:#73c2fb" >Link Metamask</button>
                 </div>
-               
+                
+                <div id="accountArea"></div>
+
             </div>
         </section>
     </main>
-    <script>
-        let provider, signer, buySideContract, account;
 
-        // 1- Connect to Metamask
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+
+    <script>
+        let account;
+    
+        //Connect to Metamask
         const accessToMetamask = async () => {
         if (window.ethereum !== "undefined") {
-            
-           
+    
             const accounts = await ethereum.request({ method: "eth_requestAccounts" });
             account = accounts[0]; 
-          window.location.href = "Subscription.html";
             document.getElementById("accountArea").innerHTML = account;
-           
-         
+            window.location.href = "Subscription.html";
+    
         } else {
             alert("MetaMask is not installed. Please install it to use this site.");
         }   
-        
-        
     };
     </script>
+
 </body>
+
 </html>
