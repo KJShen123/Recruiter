@@ -55,38 +55,18 @@
         </div>
     
         <div class="plan-list" id="planList">
-
             <h3>Request History</h3>
-
-            <div class="plan-card"  onclick="window.location.href = 'detail.html'">
-                <div class="plan-info">
-                    <h4>Wallet holder A</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                    <p class="status">Pending</p>
-                </div>
-            </div>
-            <div class="plan-card">
-                <div class="plan-info">
-                    <h4>Wallet holder B</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                    <p class="status">Pending</p>
-                </div>
-            </div>
-            <div class="plan-card">
-                <div class="plan-info">
-                    <h4>Wallet holder C</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                    <p class="status">Pending</p>
-                </div>
-            </div>
+            <!-- Dynamically generated plan cards will appear here -->
         </div>
     </main>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
     <script>
+
+        window.onload = fetchRequestHistory;
+
         const searchInput = document.getElementById("searchInput");
         const planList = document.getElementById("planList");
         const plans = Array.from(planList.children);

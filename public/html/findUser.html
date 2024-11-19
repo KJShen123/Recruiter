@@ -7,7 +7,7 @@
     <title>Responsive Interface</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="css/styles1.css" rel="stylesheet" id="style1-css">
+    <link href="../css/styles1.css" rel="stylesheet" id="style1-css">
 
     <style>
         body {
@@ -33,8 +33,6 @@
 
     </nav>
 
-    </nav>
-
     <!-- Footer Navigation -->
 
 
@@ -56,33 +54,21 @@
         </div>
 
         <div class="findUser-buttons">
-            <button class="yes-btn" onclick="window.location.href = ''">Search</button>
-            <button class="no-btn" onclick="window.location.href = 'findUser.html'">Search by QR</button>
+            <button class="yes-btn">Search</button>
+            <button class="yes-btn" onclick="window.location.href = 'scan.html'">Search by QR</button>
         </div>
-
-
-
 
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
 
     <script>
-        const searchInput = document.getElementById("searchInput");
-        const planList = document.getElementById("planList");
-        const plans = Array.from(planList.children);
+        // Attach the function to the Search button
+        document.querySelector(".findUser-buttons .yes-btn:first-child").onclick = searchUserByPublicKey;
 
-        searchInput.addEventListener("input", () => {
-            const query = searchInput.value.toLowerCase();
-            plans.forEach(plan => {
-                const title = plan.querySelector("h4").innerText.toLowerCase();
-                if (title.includes(query)) {
-                    plan.style.display = "flex";
-                } else {
-                    plan.style.display = "none";
-                }
-            });
-        });
     </script>
-</body>
 
+</body>
 </html>

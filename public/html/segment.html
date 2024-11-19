@@ -31,7 +31,7 @@
         <div>
             <button class="logout-btn" onclick="window.location.href = 'logout.html'">Logout</button>
         </div>
-
+    </nav>
     <!-- Footer Navigation -->
     
 
@@ -49,33 +49,39 @@
     <main class="main-content">
     
         <div class="info-list" id="infoList">
+            <div class="info-card" id="userInfo">
+                <h4>Wallet Holder's Info</h4></br>
+                <p id="userName">Name: </p>
+                <p id="userEmail">Email: </p>
+            </div>
             <div class="info-card">
-                <h3>Sgement Type That You Want to Request</h3></br>
+                <h4>Request Sgement Type</h3></br>
                 <div class="checkbox-group">
                     <label>
-                        <input type="Radio" name="info" value="Education"> All Sgement
+                        <input type="Radio" name="info" value="All"> All Sgement
                     </label> </br>
                     <label>
-                        <input type="Radio" name="info" value="Work"> Work Experience & Soft Skill
+                        <input type="Radio" name="info" value="WorkSoftSkill"> Work Experience & Soft Skill
                     </label> </br>
                     <label>
-                        <input type="Radio" name="info" value="Certificates"> Educations & Certificates
+                        <input type="Radio" name="info" value="EducationCertification"> Educations & Certificates
                     </label>
                 </div>
                 <div class="logout-buttons">
-                    <button class="yes-btn" id="submitBtn" onclick=request() >Submit</button>
+                    <button class="yes-btn" id="submitBtn" onclick=submitRequest() >Submit</button>
                     <button class="no-btn" onclick="window.location.href = 'search.html'">Cancel</button>
                 </div>
             </div>
         </div>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
+
     <script>
-       async function request() {
-        console.log(`Request Successful`);
-        alert(`Request Successful`);
-        window.location.href = 'search.html'
-        }
+        // Call the function on page load to populate the wallet holder info
+        window.onload = getWalletHolderInfo;
     </script>
 </body>
-
 </html>

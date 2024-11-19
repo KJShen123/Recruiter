@@ -41,11 +41,16 @@
                 <div class="scanner-footer">
                     <input type="file" id="file-input" accept="image/*" style="margin-left: 100px;"/>
                     <button id="upload-btn" style="margin-top: 20px;">Upload QR Code</button>
+                    <button onclick="window.location.href = 'findUser.html'">Search by Enter Public Key</button>
                 </div>
               
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
 
     <script>
         async function startQrScanner() {
@@ -86,8 +91,8 @@
                         const html5QrCode = new Html5Qrcode("qr-reader__camera_preview");
                         const decodedText = await html5QrCode.scanFile(file);
                         console.log(`QR Code Scanned from File: ${decodedText}`);
-                        alert(`QR Code Scanned from File: ${decodedText}`);
-                        window.location.href = 'segment.html';
+
+                        await searchUserByQRCode(decodedText);
                     } catch (err) {
                         console.error("File scanning error:", err);
                         alert("Failed to scan QR code from file. Please try again.");  

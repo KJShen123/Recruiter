@@ -29,7 +29,7 @@
         <div>
             <button class="logout-btn" onclick="window.location.href = 'logout.html'">Logout</button>
         </div>
-
+    </nav>
     <!-- Footer Navigation -->
     
 
@@ -49,46 +49,21 @@
         <div class="info-list" id="infoList">
             <div class="info-card">
                 <div class="info-info">
-                    <h3 style="color: #007bff;">Wallet holder A</h3>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                  
-                    <h4>Education</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                  
-                    <h4>Credentials</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                    
-                    <h4>Work experience</h4>
-                    <p>Email: asda@gmail.com</p>
-                    <p>Segment: Education, Work</p>
-                   
-                    
-                    
+                   <!--Dynamic Output--> 
                 </div>
             </div>
           
         </div>
     </main>
-    <script>
-        const searchInput = document.getElementById("searchInput");
-        const planList = document.getElementById("planList");
-        const plans = Array.from(planList.children);
 
-        searchInput.addEventListener("input", () => {
-            const query = searchInput.value.toLowerCase();
-            plans.forEach(plan => {
-                const title = plan.querySelector("h4").innerText.toLowerCase();
-                if (title.includes(query)) {
-                    plan.style.display = "flex";
-                } else {
-                    plan.style.display = "none";
-                }
-            });
-        });
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
+
+    <script>
+        window.onload = displayRequestedInformation;
     </script>
+
 </body>
 
 </html>

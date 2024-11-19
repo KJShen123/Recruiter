@@ -21,17 +21,8 @@
         <div>
             <button class="logout-btn" onclick="window.location.href = 'logout.html'">Logout</button>
         </div>
-
+    </nav>
     <!-- Footer Navigation -->
-  
-
-
-    <!-- Delivery and Date Options (Positioned differently for mobile and desktop) -->
-    <div class="delivery-options">
-        <button class="delivery-btn" onclick="window.location.href = 'search.html'">Search</button>
-        <button class="delivery-btn" onclick="window.location.href = 'findUser.html'">Scan</button>
-        <button class="delivery-btn" onclick="window.location.href = 'logout.html'">Logout</button>
-    </div>
 
     <!-- Main Content Section -->
     <main class="main-content">
@@ -43,7 +34,7 @@
         <!-- Promotions Section -->
         <section class="promotions">
             <button class="planBtn">
-                <div class="promo-cards" onclick="plan()">
+                <div class="promo-cards" onclick="plan1()">
                     <div class="promo-card">
                         <h3>Plan 1</h3>
                         <p>Month Plan</p>
@@ -51,7 +42,7 @@
                     </div>
             </button>
             <button class="planBtn">
-                <div class="promo-cards" onclick="plan()">
+                <div class="promo-cards" onclick="plan2()">
                     <div class="promo-card">
                         <h3>Plan 2</h3>
                         <p>Session Plan (6 Months)</p>
@@ -59,7 +50,7 @@
                     </div>
             </button>
             <button class="planBtn">
-                <div class="promo-cards" onclick="plan()">
+                <div class="promo-cards" onclick="plan3()">
                     <div class="promo-card">
                         <h3>Plan 3</h3>
                         <p>Year Plan</p>
@@ -75,5 +66,23 @@
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
+    <script>
+        const plan1 = async () => {
+            await purchaseSubscription("Month", 0.01); // Pass the subscription type and cost
+        };
+
+        const plan2 = async () => {
+            await purchaseSubscription("HalfYear", 0.05);
+        };
+
+        const plan3 = async () => {
+            await purchaseSubscription("Year", 0.1);
+        };
+    </script>
+
 </body>
 </html>

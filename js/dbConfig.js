@@ -3,7 +3,7 @@ const sql = require('mssql');
 const dbConfig = {
     user: 'Saino',
     password: 'Saino',
-    server: '192.168.0.109',
+    server: '127.0.0.1',
     database: 'SAINO',
     options: {
         encrypt: true,

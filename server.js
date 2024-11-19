@@ -47,6 +47,6 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: 'Something went wrong!' });
 });
 
-const server = app.listen(5000);
+const server = app.listen(4000);
 const portNumber = server.address().port;
 console.log(`port is open on ${portNumber}`);

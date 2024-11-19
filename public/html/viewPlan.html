@@ -8,6 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="../css/styles1.css" rel="stylesheet" id="style1-css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+      
+    </style>
+
 </head>
 
 <body>
@@ -21,7 +33,7 @@
         <div>
             <button class="logout-btn" onclick="window.location.href = 'logout.html'">Logout</button>
         </div>
-
+    </nav>
     <!-- Footer Navigation -->
   
 
@@ -46,23 +58,21 @@
         <section class="promotions">
             <button class="planBtn">
                 <div class="promo-cards">
-                    <div class="promo-card">
-                        <h3>Plan Type: Month Plan</h3>
-                        <p>Expiry Date: 18/12/2024</p>
-                        <p>Remaining Days: 30 Days</p>
+                    <div class="promo-card"  id="Current">
+                        <!--Dynamic Output-->
                     </div>
             </button>
         </section>
 
         <!-- Promotion Banner -->
         <section class="promo-banner">
-            <h4>Change To A New Plan</h4>
+            <h4>Purchase A New Plan</h4>
         </section>
 
         <!-- Promotions Section -->
         <section class="promotions">
             <button class="planBtn">
-                <div class="promo-cards" onclick="plan()">
+                <div class="promo-cards" onclick="plan1()">
                     <div class="promo-card">
                         <h3>Plan 1</h3>
                         <p>Month Plan</p>
@@ -70,7 +80,7 @@
                     </div>
             </button>
             <button class="planBtn">
-                <div class="promo-cards" onclick="plan()">
+                <div class="promo-cards" onclick="plan2()">
                     <div class="promo-card">
                         <h3>Plan 2</h3>
                         <p>Session Plan (6 Months)</p>
@@ -78,7 +88,7 @@
                     </div>
             </button>
             <button class="planBtn">
-                <div class="promo-cards" onclick="plan()">
+                <div class="promo-cards" onclick="plan3()">
                     <div class="promo-card">
                         <h3>Plan 3</h3>
                         <p>Year Plan</p>
@@ -87,5 +97,27 @@
             </button>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="../js/contract.js"></script>
+    <script src="../js/bcFunction.js"></script>
+    <script>
+        // Check subscription when the page loads
+        window.onload = checkSubscriptionAndDisplay;
+
+        const plan1 = async () => {
+            await purchaseSubscription("Month", 0.01); // Pass the subscription type and cost
+        };
+
+        const plan2 = async () => {
+            await purchaseSubscription("HalfYear", 0.05);
+        };
+
+        const plan3 = async () => {
+            await purchaseSubscription("Year", 0.1);
+        };
+
+    </script>
+
 </body>
 </html>
