@@ -136,7 +136,13 @@
                 sessionStorage.setItem("email", data.email);
 
                 // Redirect to another page on success
-                window.location.href = '/html/linkWallet.html'; // Redirect on success
+
+                if( data.email === "admin@gmail.com"){
+                    window.location.href = 'adminHome.html';
+                } else{
+                    window.location.href = '/html/linkWallet.html';
+                }
+                
             } else {
                 console.error('Login failed:', data.message);
                 alert(data.message); // Show error message on failure
