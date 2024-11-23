@@ -508,19 +508,7 @@ async function displayRequestedInformation() {
 
         // Conditionally add segments based on the selected segment type
         if (segmentType === 0 || segmentType === 1) { // All or Work Experience & Soft Skills
-            if (softSkills.length > 0) {
-                infoInfo.innerHTML += `
-                    <h4>Soft Skills (${softSkills.length})</h4>
-                    ${softSkills.map((skill, index) => `
-                        <p><strong>Soft Skill ${index + 1}:</strong></p>
-                        <p><strong>Highlight:</strong> ${skill.highlight}</p>
-                        <p><strong>Description:</strong> ${skill.description}</p>
-                        <p><strong>Level:</strong> ${skill.level}</p>
-                        <hr>
-                    `).join("")}
-                `;
-            }
-
+            
             if (works.length > 0) {
                 // Sort works by startDate (descending)
                 const sortedWorks = [...works].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
@@ -539,9 +527,39 @@ async function displayRequestedInformation() {
                     `).join("")}
                 `;
             }
+            
+            if (softSkills.length > 0) {
+                infoInfo.innerHTML += `
+                    <h4>Soft Skills (${softSkills.length})</h4>
+                    ${softSkills.map((skill, index) => `
+                        <p><strong>Soft Skill ${index + 1}:</strong></p>
+                        <p><strong>Highlight:</strong> ${skill.highlight}</p>
+                        <p><strong>Description:</strong> ${skill.description}</p>
+                        <p><strong>Level:</strong> ${skill.level}</p>
+                        <hr>
+                    `).join("")}
+                `;
+            }
         }
 
         if (segmentType === 0 || segmentType === 2) { // All or Education & Certificates
+            
+            if (certifications.length > 0) {
+                infoInfo.innerHTML += `
+                    <h4>Certifications (${certifications.length})</h4>
+                    ${certifications.map((cert, index) => `
+                        <p><strong>Certification ${index + 1}:</strong></p>
+                        <p><strong>Name:</strong> ${cert.name}</p>
+                        <p><strong>Issuer:</strong> ${cert.issuer}</p>
+                        <p><strong>Type:</strong> ${cert.certType}</p>
+                        <p><strong>Description:</strong> ${cert.description}</p>
+                        <p><strong>Acquired Date:</strong> ${cert.acquiredDate}</p>
+                        <p><strong>Active:</strong> ${cert.active ? "Yes" : "No"}</p>
+                        <hr>
+                    `).join("")}
+                `;
+            }
+            
             if (educations.length > 0) {
                 // Sort educations by startDate (descending)
                 const sortedEducations = [...educations].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
@@ -554,22 +572,6 @@ async function displayRequestedInformation() {
                         <p><strong>Field of Study:</strong> ${edu.fieldOfStudy}</p>
                         <p><strong>Institute:</strong> ${edu.instituteName}, ${edu.instituteCity}, ${edu.instituteState}, ${edu.instituteCountry}</p>
                         <p><strong>Duration:</strong> ${edu.startDate} to ${edu.endDate}</p>
-                        <hr>
-                    `).join("")}
-                `;
-            }
-
-            if (certifications.length > 0) {
-                infoInfo.innerHTML += `
-                    <h4>Certifications (${certifications.length})</h4>
-                    ${certifications.map((cert, index) => `
-                        <p><strong>Certification ${index + 1}:</strong></p>
-                        <p><strong>Name:</strong> ${cert.name}</p>
-                        <p><strong>Issuer:</strong> ${cert.issuer}</p>
-                        <p><strong>Type:</strong> ${cert.certType}</p>
-                        <p><strong>Description:</strong> ${cert.description}</p>
-                        <p><strong>Acquired Date:</strong> ${cert.acquiredDate}</p>
-                        <p><strong>Active:</strong> ${cert.active ? "Yes" : "No"}</p>
                         <hr>
                     `).join("")}
                 `;

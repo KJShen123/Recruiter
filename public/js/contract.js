@@ -1,6 +1,6 @@
 
 // Addresses and APIs for the contracts
-const CVUploaderAdd = "0x5d8EEDce8FcDC5A28D93E8D19DA6Dc2Cc3f23d3E"; 
+const CVUploaderAdd = "0x7FAD4b5386048B5191fFAeC7E6886dB387999394"; 
 const CVUploaderABI = [
 	{
 		"anonymous": false,
@@ -782,25 +782,12 @@ const CVUploaderABI = [
 	}
 ];
 
-const SubscripRequestAdd = "0xEC1fC887e338914c2cC68739482D044ceE626DF0";
+const SubscripRequestAdd = "0x25178189Ad3971648A9a706ebF6F74f7f0618EE3";
 const SubscripRequestABI = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "ETHStored",
-		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -878,6 +865,19 @@ const SubscripRequestABI = [
 		"type": "event"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "balance",
+				"type": "uint256"
+			}
+		],
+		"name": "contractBalance",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -891,6 +891,70 @@ const SubscripRequestABI = [
 			}
 		],
 		"name": "createViewRequest",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "enum SubscripRequest.SubscriptionType",
+				"name": "subscriptionType",
+				"type": "uint8"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "userName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "companyName",
+				"type": "string"
+			}
+		],
+		"name": "registerAndPurchaseSubscription",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "walletHolder",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "requestIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum SubscripRequest.RequestStatus",
+				"name": "response",
+				"type": "uint8"
+			}
+		],
+		"name": "respondToRequest",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawETH",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -955,64 +1019,6 @@ const SubscripRequestABI = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "enum SubscripRequest.SubscriptionType",
-				"name": "subscriptionType",
-				"type": "uint8"
-			},
-			{
-				"internalType": "string",
-				"name": "email",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "userName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "companyName",
-				"type": "string"
-			}
-		],
-		"name": "registerAndPurchaseSubscription",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "walletHolder",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "requestIndex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "enum SubscripRequest.RequestStatus",
-				"name": "response",
-				"type": "uint8"
-			}
-		],
-		"name": "respondToRequest",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "storeETH",
-		"outputs": [],
-		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -1121,19 +1127,6 @@ const SubscripRequestABI = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "withdrawETH",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];

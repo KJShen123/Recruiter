@@ -61,19 +61,19 @@
     
         //Connect to Metamask
         const accessToMetamask = async () => {
-        if (window.ethereum !== "undefined") {
-    
-            const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-            account = accounts[0]; 
-            document.getElementById("accountArea").innerHTML = account;
-            
-            // Check registration after linking MetaMask
-            await checkUserRegistration();
-    
-        } else {
-            alert("MetaMask is not installed. Please install it to use this site.");
-        }   
-    };
+            if (window.ethereum !== "undefined") {
+        
+                const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+                account = accounts[0]; 
+                document.getElementById("accountArea").innerHTML = account;
+                
+                // Check registration after linking MetaMask
+                await checkUserRegistration();
+        
+            } else {
+                alert("MetaMask is not installed. Please install it to use this site.");
+            }   
+        };
     </script>
 
 </body>
