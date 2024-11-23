@@ -1,6 +1,6 @@
 
 // Addresses and APIs for the contracts
-const CVUploaderAdd = "0x8029F0778c87e894eA7043dcCAfBbB87FA8842b4"; 
+const CVUploaderAdd = "0x5d8EEDce8FcDC5A28D93E8D19DA6Dc2Cc3f23d3E"; 
 const CVUploaderABI = [
 	{
 		"anonymous": false,
@@ -782,26 +782,8 @@ const CVUploaderABI = [
 	}
 ];
 
-const SubscripRequestAdd = "0x7c82bE13A99416A2caCAe63458ed595ACE8Fc146";
+const SubscripRequestAdd = "0xEC1fC887e338914c2cC68739482D044ceE626DF0";
 const SubscripRequestABI = [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "walletHolder",
-				"type": "address"
-			},
-			{
-				"internalType": "enum SubscripRequest.SegmentType",
-				"name": "segmentType",
-				"type": "uint8"
-			}
-		],
-		"name": "createViewRequest",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -832,49 +814,6 @@ const SubscripRequestABI = [
 		],
 		"name": "ETHWithdrawn",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "enum SubscripRequest.SubscriptionType",
-				"name": "subscriptionType",
-				"type": "uint8"
-			}
-		],
-		"name": "registerAndPurchaseSubscription",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "walletHolder",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "requestIndex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "enum SubscripRequest.RequestStatus",
-				"name": "response",
-				"type": "uint8"
-			}
-		],
-		"name": "respondToRequest",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "storeETH",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -941,12 +880,17 @@ const SubscripRequestABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "walletHolder",
+				"type": "address"
+			},
+			{
+				"internalType": "enum SubscripRequest.SegmentType",
+				"name": "segmentType",
+				"type": "uint8"
 			}
 		],
-		"name": "withdrawETH",
+		"name": "createViewRequest",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -993,9 +937,82 @@ const SubscripRequestABI = [
 				"internalType": "uint256",
 				"name": "expiryDate",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "userName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "companyName",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "enum SubscripRequest.SubscriptionType",
+				"name": "subscriptionType",
+				"type": "uint8"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "userName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "companyName",
+				"type": "string"
+			}
+		],
+		"name": "registerAndPurchaseSubscription",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "walletHolder",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "requestIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum SubscripRequest.RequestStatus",
+				"name": "response",
+				"type": "uint8"
+			}
+		],
+		"name": "respondToRequest",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "storeETH",
+		"outputs": [],
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -1006,6 +1023,57 @@ const SubscripRequestABI = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "recruiter",
+				"type": "address"
+			}
+		],
+		"name": "viewRecruiter",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "publicKey",
+						"type": "address"
+					},
+					{
+						"internalType": "enum SubscripRequest.SubscriptionType",
+						"name": "subscriptionType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expiryDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "userName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "companyName",
+						"type": "string"
+					}
+				],
+				"internalType": "struct SubscripRequest.Recruiter[]",
+				"name": "",
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
@@ -1053,6 +1121,19 @@ const SubscripRequestABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawETH",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];

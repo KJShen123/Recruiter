@@ -9,13 +9,12 @@ const app = express();
 // Middleware to parse JSON data
 app.use(express.json());
 
-// Session middleware (Ensure this is added before defining routes)
 app.use(expressSession({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: true,
     cookie: { 
-        secure: false // Use 'secure: true' in production if using HTTPS
+        secure: false 
     }
 }));
 

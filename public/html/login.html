@@ -129,6 +129,13 @@
 
             if (response.ok) {
                 console.log('Login successful:', data);
+
+                // Store session data in sessionStorage
+                sessionStorage.setItem("userName", data.userName);
+                sessionStorage.setItem("companyName", data.companyName);
+                sessionStorage.setItem("email", data.email);
+
+                // Redirect to another page on success
                 window.location.href = '/html/linkWallet.html'; // Redirect on success
             } else {
                 console.error('Login failed:', data.message);

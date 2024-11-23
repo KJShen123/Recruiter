@@ -110,12 +110,42 @@ const checkSubscriptionAndDisplay = async () => {
 };
 
 
-const purchaseSubscription = async (subscriptionType, cost) => {
+const purchaseSubscription = async (subscriptionType) => {
     try {
         if (!window.ethereum) {
             alert("Please install MetaMask to proceed.");
             return;
         }
+
+        // Retrieve session data
+        const email = sessionStorage.getItem("email");
+        const userName = sessionStorage.getItem("userName");
+        const companyName = sessionStorage.getItem("companyName");
+
+        if (!email || !userName || !companyName) {
+            alert("User session data is missing. Please log in again.");
+            return;
+        }
+
+        // Mapping subscription type to enum and cost
+        const subscriptionEnum = {
+            Month: 1,
+            HalfYear: 2,
+            Year: 3,
+        };
+
+        const subscriptionCost = {
+            Month: 0.01,
+            HalfYear: 0.05,
+            Year: 0.1,
+        };
+
+        if (!subscriptionEnum[subscriptionType]) {
+            alert("Invalid subscription type.");
+            return;
+        }
+
+        const cost = subscriptionCost[subscriptionType];
 
         // Connect to MetaMask
         const accounts = await ethereum.request({ method: "eth_requestAccounts" });
@@ -126,21 +156,12 @@ const purchaseSubscription = async (subscriptionType, cost) => {
         const signer = provider.getSigner();
         const contractWithSigner = window.SubscripRequestContract.connect(signer);
 
-        // Mapping subscription type to enum
-        const subscriptionEnum = {
-            Month: 1,
-            HalfYear: 2,
-            Year: 3
-        };
-
-        if (!subscriptionEnum[subscriptionType]) {
-            alert("Invalid subscription type.");
-            return;
-        }
-
-        // Call the smart contract function
+        // Call the smart contract function with session data
         const txn = await contractWithSigner.registerAndPurchaseSubscription(
-            subscriptionEnum[subscriptionType], // Pass the enum value
+            subscriptionEnum[subscriptionType], // Enum value for subscription type
+            email,
+            userName,
+            companyName,
             { value: ethers.utils.parseEther(cost.toString()) } // Send the payment in ETH
         );
 
@@ -148,7 +169,8 @@ const purchaseSubscription = async (subscriptionType, cost) => {
         await txn.wait();
 
         alert(`Subscription purchased successfully: ${subscriptionType}`);
-        location.reload();
+        sessionStorage.setItem("registered", "true");
+        window.location.href = 'viewPlan.html';
     } catch (error) {
         console.error("Error purchasing subscription:", error);
         alert("Your payment processing has been cancelled.");
@@ -460,7 +482,7 @@ async function displayRequestedInformation() {
         const walletHolderAddress = sessionStorage.getItem("selectedWalletHolderAddress");
         const segmentType = parseInt(sessionStorage.getItem("selectedSegmentType"));
 
-        // Fetch all credentials using the `viewAllCredentials` function
+        // Fetch all credentials using the viewAllCredentials function
         const [walletHolder, softSkills, works, educations, certifications] =
             await window.CVUploaderContract.viewAllCredentials(walletHolderAddress);
 
@@ -500,9 +522,12 @@ async function displayRequestedInformation() {
             }
 
             if (works.length > 0) {
+                // Sort works by startDate (descending)
+                const sortedWorks = [...works].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+
                 infoInfo.innerHTML += `
-                    <h4>Work Experience (${works.length})</h4>
-                    ${works.map((work, index) => `
+                    <h4>Work Experience (${sortedWorks.length})</h4>
+                    ${sortedWorks.map((work, index) => `
                         <p><strong>Work Experience ${index + 1}:</strong></p>
                         <p><strong>Title:</strong> ${work.title}</p>
                         <p><strong>Company:</strong> ${work.company}</p>
@@ -518,9 +543,12 @@ async function displayRequestedInformation() {
 
         if (segmentType === 0 || segmentType === 2) { // All or Education & Certificates
             if (educations.length > 0) {
+                // Sort educations by startDate (descending)
+                const sortedEducations = [...educations].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+
                 infoInfo.innerHTML += `
-                    <h4>Education (${educations.length})</h4>
-                    ${educations.map((edu, index) => `
+                    <h4>Education (${sortedEducations.length})</h4>
+                    ${sortedEducations.map((edu, index) => `
                         <p><strong>Education ${index + 1}:</strong></p>
                         <p><strong>Level:</strong> ${edu.level}</p>
                         <p><strong>Field of Study:</strong> ${edu.fieldOfStudy}</p>
