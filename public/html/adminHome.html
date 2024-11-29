@@ -140,11 +140,10 @@
                 const savedAccount = sessionStorage.getItem("connectedAccount");
                 if (savedAccount) {
                     document.getElementById("accountArea").innerHTML = `Connected To : ${savedAccount}`;
-                    
-                    // Initialize contract balance update
-                    updateContractBalance();
                 }
-
+                
+                // Initialize contract balance update
+                updateContractBalance();
                 loadTransactions();
             };
 

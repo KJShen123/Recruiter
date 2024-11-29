@@ -535,7 +535,7 @@ async function displayRequestedInformation() {
                         <p><strong>Soft Skill ${index + 1}:</strong></p>
                         <p><strong>Highlight:</strong> ${skill.highlight}</p>
                         <p><strong>Description:</strong> ${skill.description}</p>
-                        <p><strong>Level:</strong> ${skill.level}</p>
+                        <p><strong>Level:</strong> ${getLevelText(skill.level)}</p>
                         <hr>
                     `).join("")}
                 `;
@@ -588,3 +588,16 @@ async function displayRequestedInformation() {
     }
 }
 
+
+// Function to convert level to text
+function getLevelText(level) {
+
+    switch (level) {
+        case 1: return 'Beginner';
+        case 2: return 'Intermediate';
+        case 3: return 'Advanced';
+        case 4: return 'Expert';
+        case 5: return 'Master';
+        default: return 'Unknown';
+    }
+}
